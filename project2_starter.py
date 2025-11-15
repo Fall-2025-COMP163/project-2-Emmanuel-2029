@@ -1,7 +1,7 @@
 """
 COMP 163 - Project 2: Character Abilities Showcase
-Name: [Your Name Here]
-Date: [Date]
+Name: [Emmanuel Obimma]
+Date: [11/11/25]
 
 AI Usage: [Document any AI assistance used]
 Example: AI helped with inheritance structure and method overriding concepts
@@ -10,6 +10,34 @@ Example: AI helped with inheritance structure and method overriding concepts
 # ============================================================================
 # PROVIDED BATTLE SYSTEM (DO NOT MODIFY)
 # ============================================================================
+
+# Base Character class.
+# Basic attributes: name, health, alive.
+# Basic methods: take_damage, attack (placeholder), display_stats.
+class Character:
+    def __init__(self, name, health=100):
+        self.name = name
+        self.health = health
+        self.alive = True
+
+    def take_damage(self, damage):
+# Subtract damage from health and update alive flag."""
+        if not self.alive:
+            return self.health
+        self.health -= damage
+        if self.health <= 0:
+            self.health = 0
+            self.alive = False
+        return self.health
+
+    def attack(self, target):
+# Base Character does no damage by default — subclasses override this."""
+        return 0
+
+    def display_stats(self):
+        print(f"Name: {self.name}")
+        print(f"Health: {self.health}")
+        print(f"Alive: {self.alive}")
 
 class SimpleBattle:
     """
